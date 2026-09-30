@@ -1,0 +1,24 @@
+{
+  "root": "/tmp/am-ws/c-1790732970995-ea1vk",
+  "name": "c-1790732970995-ea1vk",
+  "generatedAt": "2026-09-30T14:38:14.458Z",
+  "fileCount": 2,
+  "dirCount": 1,
+  "languages": {
+    "Markdown": 1
+  },
+  "keyFiles": [
+    "README.md"
+  ],
+  "directories": [
+    {
+      "dir": "(root)",
+      "fileCount": 2,
+      "files": [
+        ".gitignore",
+        "README.md"
+      ],
+      "symbols": []
+    }
+  ]
+}
