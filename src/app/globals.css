@@ -49,29 +49,29 @@
 }
 
 :root {
-  --background: oklch(0.99 0.008 90);
-  --foreground: oklch(0.2 0.02 70);
+  --background: oklch(0.985 0.01 60);
+  --foreground: oklch(0.18 0.025 30);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.02 70);
+  --card-foreground: oklch(0.18 0.025 30);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.02 70);
-  --primary: oklch(0.45 0.12 140);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.6 0.1 80);
+  --popover-foreground: oklch(0.18 0.025 30);
+  --primary: oklch(0.5 0.18 32);
+  --primary-foreground: oklch(0.98 0.005 60);
+  --secondary: oklch(0.55 0.12 145);
   --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.96 0.01 90);
-  --muted-foreground: oklch(0.55 0.03 70);
-  --accent: oklch(0.7 0.12 45);
+  --muted: oklch(0.94 0.015 60);
+  --muted-foreground: oklch(0.5 0.03 30);
+  --accent: oklch(0.65 0.14 55);
   --accent-foreground: oklch(0.98 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.01 90);
-  --input: oklch(0.9 0.01 90);
-  --ring: oklch(0.45 0.12 140);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --border: oklch(0.88 0.015 60);
+  --input: oklch(0.88 0.015 60);
+  --ring: oklch(0.5 0.18 32);
+  --chart-1: oklch(0.5 0.18 32);
+  --chart-2: oklch(0.55 0.12 145);
+  --chart-3: oklch(0.65 0.14 55);
+  --chart-4: oklch(0.4 0.1 30);
+  --chart-5: oklch(0.7 0.08 80);
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -93,6 +93,24 @@
   html {
     scroll-behavior: smooth;
   }
+}
+
+@utility recipe-step-card {
+  @apply relative overflow-hidden rounded-xl border border-border/60 bg-white p-5 shadow-sm transition-all;
+}
+@utility recipe-step-card-active {
+  @apply border-primary/30 ring-2 ring-primary/10;
+}
+@utility recipe-step-card-completed {
+  @apply border-secondary/30 bg-secondary/5;
+}
+
+@utility produce-gradient {
+  background: linear-gradient(135deg, oklch(0.5 0.18 32 / 0.08), oklch(0.55 0.12 145 / 0.06));
+}
+
+@utility cookbook-shadow {
+  box-shadow: 0 4px 24px oklch(0 0 0 / 0.04), 0 1px 4px oklch(0 0 0 / 0.06);
 }
 
 @utility scrollbar-hide {
