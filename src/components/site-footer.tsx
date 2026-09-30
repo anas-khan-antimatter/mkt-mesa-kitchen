@@ -1,102 +1,75 @@
 import Link from "next/link";
 
 const footerLinks = [
-  { href: "#menu", label: "Weekly Menu" },
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#recipes", label: "Recipes" },
-  { href: "#pricing", label: "Pricing" },
+  {
+    title: "Explore",
+    links: [
+      { label: "Weekly Menu", href: "/menu" },
+      { label: "Recipes", href: "/recipes" },
+      { label: "Box Builder", href: "/box-builder" },
+      { label: "Pantry Swap", href: "/pantry-swap" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "#" },
+      { label: "Careers", href: "#" },
+      { label: "Press", href: "#" },
+      { label: "Blog", href: "#" },
+    ],
+  },
+  {
+    title: "Support",
+    links: [
+      { label: "FAQ", href: "#" },
+      { label: "Contact", href: "#" },
+      { label: "Delivery", href: "#" },
+      { label: "Returns", href: "#" },
+    ],
+  },
 ];
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border/40 bg-muted/30">
+    <footer className="border-t border-border/40 bg-background">
       <div className="container mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="font-heading text-lg font-semibold tracking-tight">
-              <span className="text-primary">Mesa</span>
-            </h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Real food, real simple. Farm-fresh ingredients, chef-crafted
-              recipes, delivered to your door.
+            <Link href="/" className="font-heading text-2xl tracking-tight text-primary">
+              Mesa
+            </Link>
+            <p className="mt-2 text-sm text-muted-foreground max-w-xs">
+              Real food, real simple. Chef-crafted meal kits delivered fresh to your door.
             </p>
           </div>
-          <div>
-            <h4 className="mb-3 text-sm font-semibold">Explore</h4>
-            <ul className="space-y-2">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="mb-3 text-sm font-semibold">Support</h4>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Shipping & Returns
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="mb-3 text-sm font-semibold">Connect</h4>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  TikTok
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Pinterest
-                </a>
-              </li>
-            </ul>
-          </div>
+          {footerLinks.map((group) => (
+            <div key={group.title}>
+              <h3 className="text-sm font-semibold text-foreground mb-3">{group.title}</h3>
+              <ul className="space-y-2">
+                {group.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <div className="mt-10 border-t border-border/40 pt-6 text-center text-xs text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Mesa. All rights reserved.</p>
+        <div className="mt-10 border-t border-border/40 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-muted-foreground">
+            &copy; {new Date().getFullYear()} Mesa. All rights reserved.
+          </p>
+          <div className="flex gap-4 text-xs text-muted-foreground">
+            <Link href="#" className="hover:text-foreground transition-colors">Privacy</Link>
+            <Link href="#" className="hover:text-foreground transition-colors">Terms</Link>
+            <Link href="#" className="hover:text-foreground transition-colors">Accessibility</Link>
+          </div>
         </div>
       </div>
     </footer>
