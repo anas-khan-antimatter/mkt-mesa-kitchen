@@ -1,14 +1,14 @@
 {
   "root": "/tmp/am-ws/c-1790732970995-ea1vk",
   "name": "c-1790732970995-ea1vk",
-  "generatedAt": "2026-09-30T17:40:02.739Z",
-  "fileCount": 43,
-  "dirCount": 7,
+  "generatedAt": "2026-09-30T17:46:43.099Z",
+  "fileCount": 44,
+  "dirCount": 8,
   "languages": {
     "Markdown": 8,
     "JSON": 5,
     "JavaScript": 2,
-    "TypeScript": 20,
+    "TypeScript": 21,
     "CSS": 1
   },
   "keyFiles": [
@@ -75,6 +75,14 @@
           "kind": "const"
         }
       ]
+    },
+    {
+      "dir": "src/app/menu",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
     },
     {
       "dir": "src/components",
