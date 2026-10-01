@@ -7,10 +7,10 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 
 const navLinks = [
-  { href: "#menu", label: "Weekly Menu" },
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#recipes", label: "Recipes" },
-  { href: "#pricing", label: "Pricing" },
+  { href: "/menu", label: "Weekly Menu" },
+  { href: "/plan", label: "Meal Planner" },
+  { href: "/recipes", label: "Recipes" },
+  { href: "/#pricing", label: "Pricing" },
 ];
 
 export function SiteHeader() {
