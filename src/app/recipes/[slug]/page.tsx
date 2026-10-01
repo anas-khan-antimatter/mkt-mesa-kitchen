@@ -1,13 +1,9 @@
-"use client";
-
-import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, Circle, Clock, Users, ChefHat, ArrowLeft, Printer } from "lucide-react";
 import Link from "next/link";
+import { ChefHat, Clock, Users } from "lucide-react";
 
-// Recipe database
+/* Recipe content database — shared between server and client */
 const recipesDb: Record<string, {
   name: string;
   description: string;
@@ -167,9 +163,12 @@ const recipesDb: Record<string, {
   },
 };
 
-export default function RecipeDetailPage({ params }: { params: { slug: string } }) {
+export default async function RecipeDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const recipe = recipesDb[params.slug];
-  const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
 
   if (!recipe) {
     return (
@@ -179,27 +178,20 @@ export default function RecipeDetailPage({ params }: { params: { slug: string } 
           We couldn&apos;t find that recipe. Browse our full menu instead.
         </p>
         <div className="mt-6">
-          <Button asChild>
-            <Link href="/menu">View Menu</Link>
-          </Button>
+          <Link
+            href="/menu"
+            className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/80"
+          >
+            View Menu
+          </Link>
         </div>
       </div>
     );
   }
 
-  function toggleStep(index: number) {
-    const next = new Set(completedSteps);
-    if (next.has(index)) {
-      next.delete(index);
-    } else {
-      next.add(index);
-    }
-    setCompletedSteps(next);
-  }
-
-  const progressPct = recipe.steps.length > 0
-    ? Math.round((completedSteps.size / recipe.steps.length) * 100)
-    : 0;
+  const totalTime = recipe.prepTime && recipe.cookTime
+    ? `${(parseInt(recipe.prepTime) + parseInt(recipe.cookTime))} min`
+    : "—";
 
   return (
     <div className="bg-background">
@@ -207,9 +199,13 @@ export default function RecipeDetailPage({ params }: { params: { slug: string } 
       <div className="border-b border-border/40 bg-background py-4">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link href="/" className="transition-colors hover:text-foreground">Home</Link>
+            <Link href="/" className="transition-colors hover:text-foreground">
+              Home
+            </Link>
             <span>/</span>
-            <Link href="/menu" className="transition-colors hover:text-foreground">Menu</Link>
+            <Link href="/menu" className="transition-colors hover:text-foreground">
+              Menu
+            </Link>
             <span>/</span>
             <span className="text-foreground">{recipe.name}</span>
           </nav>
@@ -217,7 +213,9 @@ export default function RecipeDetailPage({ params }: { params: { slug: string } 
       </div>
 
       {/* Hero */}
-      <section className={`bg-gradient-to-br ${recipe.image} py-12 sm:py-16`}>
+      <section
+        className={`bg-gradient-to-br ${recipe.image} py-12 sm:py-16`}
+      >
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-white/80">
             <span className="flex items-center gap-1">
@@ -241,7 +239,11 @@ export default function RecipeDetailPage({ params }: { params: { slug: string } 
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {recipe.tags.map((tag) => (
-              <Badge key={tag} variant="secondary" className="text-xs font-medium capitalize">
+              <Badge
+                key={tag}
+                variant="secondary"
+                className="text-xs font-medium capitalize"
+              >
                 {tag}
               </Badge>
             ))}
@@ -250,31 +252,20 @@ export default function RecipeDetailPage({ params }: { params: { slug: string } 
       </section>
 
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 lg:grid lg:grid-cols-[2fr_1fr] lg:gap-10">
-        {/* Left column: Steps + Ingredients */}
+        {/* Left column: Ingredients + Steps */}
         <div>
-          {/* Progress bar */}
-          {completedSteps.size > 0 && (
-            <div className="mb-6 rounded-xl bg-primary/5 p-4">
-              <div className="mb-2 flex items-center justify-between text-sm">
-                <span className="font-medium text-primary">Cooking progress</span>
-                <span className="text-primary">{completedSteps.size}/{recipe.steps.length} steps</span>
-              </div>
-              <div className="h-2 rounded-full bg-primary/20 overflow-hidden">
-                <div
-                  className="h-full rounded-full bg-primary transition-all"
-                  style={{ width: `${progressPct}%` }}
-                />
-              </div>
-            </div>
-          )}
-
           {/* Ingredients card */}
           <Card className="mb-8 border-border/50">
             <CardContent className="p-5">
-              <h2 className="mb-4 font-heading text-xl tracking-tight">Ingredients</h2>
+              <h2 className="mb-4 font-heading text-xl tracking-tight">
+                Ingredients
+              </h2>
               <ul className="space-y-2">
                 {recipe.ingredients.map((ingredient) => (
-                  <li key={ingredient} className="flex items-start gap-2 text-sm">
+                  <li
+                    key={ingredient}
+                    className="flex items-start gap-2 text-sm"
+                  >
                     <span className="mt-0.5 h-1.5 w-1.5 rounded-full bg-primary/30" />
                     <span>{ingredient}</span>
                   </li>
@@ -283,40 +274,29 @@ export default function RecipeDetailPage({ params }: { params: { slug: string } 
             </CardContent>
           </Card>
 
-          {/* Step checklist */}
+          {/* Steps */}
           <Card className="border-border/50">
             <CardContent className="p-5">
-              <h2 className="mb-4 font-heading text-xl tracking-tight">Steps</h2>
+              <h2 className="mb-4 font-heading text-xl tracking-tight">
+                Steps
+              </h2>
+              <p className="mb-4 text-sm text-muted-foreground">
+                Follow along — check off each step as you go.
+              </p>
               <ol className="space-y-3">
-                {recipe.steps.map((step, index) => {
-                  const done = completedSteps.has(index);
-                  return (
-                    <li
-                      key={index}
-                      onClick={() => toggleStep(index)}
-                      className={`group flex items-start gap-3 rounded-lg border border-border/30 p-3 cursor-pointer transition-all ${
-                        done ? "bg-primary/5 border-primary/20" : "hover:bg-muted/50"
-                      }`}
-                    >
-                      <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-medium transition-all ${
-                        done
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-muted text-muted-foreground"
-                      }`}>
-                        {done ? (
-                          <Check className="h-4 w-4" />
-                        ) : (
-                          <span>{index + 1}</span>
-                        )}
-                      </span>
-                      <span className={`flex-1 text-sm leading-snug ${
-                        done ? "line-through text-muted-foreground/60" : "text-foreground"
-                      }`}>
-                        {step}
-                      </span>
-                    </li>
-                  );
-                })}
+                {recipe.steps.map((step, index) => (
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 rounded-lg border border-border/30 bg-muted/30 p-3"
+                  >
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-medium text-primary">
+                      {index + 1}
+                    </span>
+                    <span className="flex-1 text-sm leading-snug">
+                      {step}
+                    </span>
+                  </li>
+                ))}
               </ol>
             </CardContent>
           </Card>
@@ -338,9 +318,7 @@ export default function RecipeDetailPage({ params }: { params: { slug: string } 
               </div>
               <div className="flex justify-between">
                 <dt className="text-muted-foreground">Total</dt>
-                <dd>{recipe.prepTime && recipe.cookTime
-                  ? `${(recipe.prepTime.split(" ")[0] ? parseInt(recipe.prepTime) : 10) + (recipe.cookTime.split(" ")[0] ? parseInt(recipe.cookTime) : 15)} min`
-                  : "—"}</dd>
+                <dd>{totalTime}</dd>
               </div>
               <div className="flex justify-between">
                 <dt className="text-muted-foreground">Difficulty</dt>
@@ -366,32 +344,19 @@ export default function RecipeDetailPage({ params }: { params: { slug: string } 
             </ul>
           </div>
 
-          {/* Actions */}
-          <div className="space-y-2">
-            <Button variant="outline" size="sm" className="w-full" asChild>
-              <button onClick={() => window.print()} className="flex w-full items-center justify-center gap-1.5">
-                <Printer className="h-4 w-4" />
-                Print Recipe
-              </button>
-            </Button>
-            <Button variant="ghost" size="sm" className="w-full" asChild>
-              <Link href="/menu" className="flex w-full items-center justify-center gap-1.5">
-                <ArrowLeft className="h-4 w-4" />
-                Back to Menu
-              </Link>
-            </Button>
-          </div>
-
           {/* Callout */}
-          <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm">
+          <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm">
             <p className="font-medium text-primary">Love this recipe?</p>
             <p className="mt-1 text-primary/80">
               Get all ingredients delivered fresh. Pick this meal in your plan.
             </p>
             <div className="mt-2">
-              <Button size="sm" asChild>
-                <Link href="/plan">Add to Plan</Link>
-              </Button>
+              <Link
+                href="/plan"
+                className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/80"
+              >
+                Add to Plan
+              </Link>
             </div>
           </div>
         </div>
