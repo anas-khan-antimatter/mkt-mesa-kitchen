@@ -1,14 +1,14 @@
 {
-  "root": "/tmp/am-ws/c-1790870815212-62v87",
-  "name": "c-1790870815212-62v87",
-  "generatedAt": "2026-10-01T16:11:55.478Z",
-  "fileCount": 43,
-  "dirCount": 7,
+  "root": "/tmp/am-ws/c-1790877731499-dhuz0",
+  "name": "c-1790877731499-dhuz0",
+  "generatedAt": "2026-10-01T18:09:33.497Z",
+  "fileCount": 49,
+  "dirCount": 13,
   "languages": {
+    "JSON": 6,
     "Markdown": 8,
-    "JSON": 5,
     "JavaScript": 2,
-    "TypeScript": 20,
+    "TypeScript": 25,
     "CSS": 1
   },
   "keyFiles": [
@@ -17,6 +17,14 @@
     "tsconfig.json"
   ],
   "directories": [
+    {
+      "dir": ".antimatter/lanes",
+      "fileCount": 1,
+      "files": [
+        "ship.json"
+      ],
+      "symbols": []
+    },
     {
       "dir": ".antimatter/wiki",
       "fileCount": 6,
@@ -75,6 +83,55 @@
           "kind": "const"
         }
       ]
+    },
+    {
+      "dir": "src/app/api/plan",
+      "fileCount": 1,
+      "files": [
+        "route.ts"
+      ],
+      "symbols": [
+        {
+          "name": "POST",
+          "kind": "fn"
+        },
+        {
+          "name": "OPTIONS",
+          "kind": "fn"
+        }
+      ]
+    },
+    {
+      "dir": "src/app/menu",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app/plan",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app/recipes",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app/recipes/[slug]",
+      "fileCount": 1,
+      "files": [
+        "page.tsx"
+      ],
+      "symbols": []
     },
     {
       "dir": "src/components",
