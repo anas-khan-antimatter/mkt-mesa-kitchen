@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "runsOn": "ubuntu-latest",
+  "setup": [
+    "npm ci"
+  ],
+  "build": [
+    "npm run build"
+  ],
+  "probes": [
+    {
+      "kind": "browser",
+      "url": "/menu"
+    },
+    {
+      "kind": "browser",
+      "url": "/plan"
+    },
+    {
+      "kind": "browser",
+      "url": "/recipes"
+    },
+    {
+      "kind": "http",
+      "url": "/api/plan"
+    }
+  ]
+}

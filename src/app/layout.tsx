@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Instrument_Serif } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif, Caveat } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -15,12 +15,18 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
 });
 
+const caveat = Caveat({
+  variable: "--font-hand",
+  subsets: ["latin"],
+  weight: ["400", "600"],
+});
+
 export const metadata: Metadata = {
-  title: "Mesa — Real Food, Real Simple.",
+  title: "Mesa Kitchen — Fresh Meal Kits, Delivered",
   description:
-    "Weekly meal kits with farm-fresh ingredients, chef-crafted recipes, and flexible plans. Eat well without the waste.",
+    "Weekly meal kits with farm-fresh ingredients, chef-crafted recipes, and flexible plans. Real food, real simple.",
   openGraph: {
-    title: "Mesa — Real Food, Real Simple.",
+    title: "Mesa Kitchen — Fresh Meal Kits, Delivered",
     description:
       "Weekly meal kits with farm-fresh ingredients, chef-crafted recipes, and flexible plans.",
     type: "website",
@@ -35,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSans.variable} ${instrumentSerif.variable} antialiased`}
+      className={`${instrumentSans.variable} ${instrumentSerif.variable} ${caveat.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col">
         <SiteHeader />
