@@ -1,21 +1,157 @@
 {
-  "root": "/tmp/am-ws/ch_muna8gn4_1",
-  "name": "ch_muna8gn4_1",
-  "generatedAt": "2026-09-29T23:03:23.299Z",
-  "fileCount": 1,
-  "dirCount": 1,
+  "root": "/tmp/am-ws/c-1790732970995-ea1vk",
+  "name": "c-1790732970995-ea1vk",
+  "generatedAt": "2026-09-30T17:50:55.936Z",
+  "fileCount": 44,
+  "dirCount": 8,
   "languages": {
-    "Markdown": 1
+    "Markdown": 8,
+    "JSON": 5,
+    "JavaScript": 2,
+    "TypeScript": 21,
+    "CSS": 1
   },
   "keyFiles": [
-    "README.md"
+    "package.json",
+    "README.md",
+    "tsconfig.json"
   ],
   "directories": [
     {
+      "dir": ".antimatter/wiki",
+      "fileCount": 6,
+      "files": [
+        "index.md",
+        "log.md",
+        "map.json",
+        "map.md",
+        "overview.md",
+        "schema.md"
+      ],
+      "symbols": []
+    },
+    {
       "dir": "(root)",
+      "fileCount": 11,
+      "files": [
+        ".gitignore",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "components.json",
+        "eslint.config.mjs",
+        "next.config.ts",
+        "package-lock.json",
+        "package.json",
+        "postcss.config.mjs",
+        "README.md",
+        "tsconfig.json"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "public",
+      "fileCount": 5,
+      "files": [
+        "file.svg",
+        "globe.svg",
+        "next.svg",
+        "vercel.svg",
+        "window.svg"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/app",
+      "fileCount": 4,
+      "files": [
+        "favicon.ico",
+        "globals.css",
+        "layout.tsx",
+        "page.tsx"
+      ],
+      "symbols": [
+        {
+          "name": "metadata",
+          "kind": "const"
+        }
+      ]
+    },
+    {
+      "dir": "src/app/menu",
       "fileCount": 1,
       "files": [
-        "README.md"
+        "page.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/components",
+      "fileCount": 8,
+      "files": [
+        "hero-section.tsx",
+        "how-it-works-section.tsx",
+        "menu-section.tsx",
+        "pricing-section.tsx",
+        "recipes-section.tsx",
+        "site-footer.tsx",
+        "site-header.tsx",
+        "subscribe-section.tsx"
+      ],
+      "symbols": [
+        {
+          "name": "HeroSection",
+          "kind": "fn"
+        },
+        {
+          "name": "HowItWorksSection",
+          "kind": "fn"
+        },
+        {
+          "name": "MenuSection",
+          "kind": "fn"
+        },
+        {
+          "name": "PricingSection",
+          "kind": "fn"
+        },
+        {
+          "name": "RecipesSection",
+          "kind": "fn"
+        },
+        {
+          "name": "SiteFooter",
+          "kind": "fn"
+        },
+        {
+          "name": "SiteHeader",
+          "kind": "fn"
+        },
+        {
+          "name": "SubscribeSection",
+          "kind": "fn"
+        }
+      ]
+    },
+    {
+      "dir": "src/components/ui",
+      "fileCount": 8,
+      "files": [
+        "badge.tsx",
+        "button.tsx",
+        "card.tsx",
+        "input.tsx",
+        "label.tsx",
+        "select.tsx",
+        "sheet.tsx",
+        "textarea.tsx"
+      ],
+      "symbols": []
+    },
+    {
+      "dir": "src/lib",
+      "fileCount": 1,
+      "files": [
+        "utils.ts"
       ],
       "symbols": []
     }
