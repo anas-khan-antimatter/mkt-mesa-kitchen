@@ -7,10 +7,9 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 
 const navLinks = [
-  { href: "#menu", label: "Weekly Menu" },
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#recipes", label: "Recipes" },
-  { href: "#pricing", label: "Pricing" },
+  { href: "/menu", label: "Weekly Menu" },
+  { href: "/plan", label: "Build Your Box" },
+  { href: "/recipes", label: "Recipes" },
 ];
 
 export function SiteHeader() {
@@ -40,7 +39,7 @@ export function SiteHeader() {
 
         <div className="hidden md:block">
           <Button asChild>
-            <a href="#subscribe">Get Started</a>
+            <Link href="/plan">Get Started</Link>
           </Button>
         </div>
 
@@ -65,9 +64,9 @@ export function SiteHeader() {
                 ))}
               </nav>
               <Button asChild className="mt-4">
-                <a href="#subscribe" onClick={() => setOpen(false)}>
+                <Link href="/plan" onClick={() => setOpen(false)}>
                   Get Started
-                </a>
+                </Link>
               </Button>
             </div>
           </SheetContent>

@@ -1,9 +1,9 @@
 # Workspace Map — c-1790732970995-ea1vk
-_Generated 2026-09-30 · 44 files · 8 directories_  
+_Generated 2026-10-01 · 43 files · 7 directories_  
 _Deterministic structural map. Regenerate with the `map` tool or "Antimatter: Map Workspace". Do not hand-edit._
 
 ## Languages
-- TypeScript: 21
+- TypeScript: 20
 - Markdown: 8
 - JSON: 5
 - JavaScript: 2
@@ -27,9 +27,6 @@ _Deterministic structural map. Regenerate with the `map` tool or "Antimatter: Ma
 ### `src/app` — 4 files
 - symbols: metadata (const)
 - files: favicon.ico, globals.css, layout.tsx, page.tsx
-
-### `src/app/menu` — 1 file
-- files: page.tsx
 
 ### `src/components` — 8 files
 - symbols: HeroSection (fn), HowItWorksSection (fn), MenuSection (fn), PricingSection (fn), RecipesSection (fn), SiteFooter (fn), SiteHeader (fn), SubscribeSection (fn)
