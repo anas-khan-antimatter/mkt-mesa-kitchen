@@ -4,6 +4,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ── Mesa brand palette ────────────────────────────────────
+ * Terracotta warmth, lime zest, ripe-tomato red, cream paper
+ * Cookbook photography layout with handwritten-feel accents
+ */
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -49,38 +54,54 @@
 }
 
 :root {
-  --background: oklch(0.99 0.008 90);
-  --foreground: oklch(0.2 0.02 70);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.02 70);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.02 70);
-  --primary: oklch(0.45 0.12 140);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.6 0.1 80);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.96 0.01 90);
-  --muted-foreground: oklch(0.55 0.03 70);
-  --accent: oklch(0.7 0.12 45);
-  --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.01 90);
-  --input: oklch(0.9 0.01 90);
-  --ring: oklch(0.45 0.12 140);
+  /* Warm cream background — like a well-loved cookbook page */
+  --background: oklch(0.97 0.015 80);
+  /* Deep aubergine/charcoal for body text — high readability */
+  --foreground: oklch(0.18 0.025 30);
+  /* Off-white card surfaces */
+  --card: oklch(0.96 0.012 85);
+  --card-foreground: oklch(0.18 0.025 30);
+  /* Popover on warm cream */
+  --popover: oklch(0.94 0.018 78);
+  --popover-foreground: oklch(0.18 0.025 30);
+  /* Terracotta red (primary brand color — Mesa tomato red) */
+  --primary: oklch(0.52 0.18 35);
+  --primary-foreground: oklch(0.97 0 0);
+  /* Lime zest / fresh herb green (secondary brand accent) */
+  --secondary: oklch(0.62 0.14 145);
+  --secondary-foreground: oklch(0.97 0 0);
+  /* Warm stone / putty for muted elements */
+  --muted: oklch(0.88 0.02 70);
+  --muted-foreground: oklch(0.5 0.03 60);
+  /* Burnt orange / spice for accent buttons & highlights */
+  --accent: oklch(0.65 0.16 55);
+  --accent-foreground: oklch(0.97 0 0);
+  /* Deep reddish-brown for destructive (tomato paste) */
+  --destructive: oklch(0.45 0.18 30);
+  /* Warm sand border */
+  --border: oklch(0.85 0.015 75);
+  /* Input surfaces */
+  --input: oklch(0.93 0.02 80);
+  /* Terracotta ring-focus */
+  --ring: oklch(0.52 0.18 35);
+  /* Neutral chart tones */
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  --radius: 0.75rem;
+
+  /* Sidebar (mobile nav) — cream with terracotta accents */
+  --sidebar: oklch(0.97 0.015 80);
+  --sidebar-foreground: oklch(0.18 0.025 30);
+  --sidebar-primary: oklch(0.52 0.18 35);
+  --sidebar-primary-foreground: oklch(0.97 0 0);
+  --sidebar-accent: oklch(0.62 0.14 145);
+  --sidebar-accent-foreground: oklch(0.97 0 0);
+  --sidebar-border: oklch(0.88 0.02 75);
+  --sidebar-ring: oklch(0.52 0.18 35);
 }
 
 @layer base {
@@ -101,4 +122,70 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* ── Mesa brand utility classes ─────────────────────────── */
+
+/* Terracotta text for brand headings */
+@utility text-terracotta {
+  color: oklch(0.52 0.18 35);
+}
+
+/* Lime zest text accent */
+@utility text-lime {
+  color: oklch(0.62 0.14 145);
+}
+
+/* Cream-paper surface */
+@utility bg-cream {
+  background: oklch(0.97 0.015 80);
+}
+
+/* Warm pattern — dotted rule like a cookbook divider */
+@utility cookbook-rule {
+  border: 0;
+  height: 2px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    oklch(0.52 0.18 35) 0px,
+    oklch(0.52 0.18 35) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  background-size: 4px 2px;
+}
+
+/* Photo-frame card — like a cookbook photo spread */
+@utility photo-card {
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px oklch(0.75 0.02 70 / 0.15);
+  @apply border border-border bg-card;
+}
+
+/* Handwritten-style accent (use on labels, sub-titles sparingly) */
+@utility handwritten {
+  font-family: var(--font-heading);
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+/* Produce-section card — green-tinted card for veggie items */
+@utility produce-card {
+  @apply photo-card;
+  border-left: 4px solid oklch(0.62 0.14 145);
+}
+
+/* Recipe-step card */
+@utility recipe-step {
+  @apply photo-card;
+  border-left: 4px solid oklch(0.52 0.18 35);
+}
+
+/* Price badge — like a handwritten price tag */
+@utility price-badge {
+  @apply bg-primary text-primary-foreground font-semibold;
+  border-radius: var(--radius-sm);
+  padding: 0.125rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
 }
