@@ -1,0 +1,133 @@
+export interface Meal {
+  id: number;
+  name: string;
+  description: string;
+  tags: string[];
+  prepTime: string;
+  price: number;
+  color: string;
+  slug: string;
+}
+
+export const weeklyMeals: Meal[] = [
+  {
+    id: 1,
+    name: "Harvest Kale & Quinoa Bowl",
+    description: "Roasted sweet potato, avocado, chickpeas, tahini dressing",
+    tags: ["vegetarian", "vegan", "gluten-free", "low-cal"],
+    prepTime: "25 min",
+    price: 10.99,
+    color: "from-green-200 via-green-100 to-lime-200",
+    slug: "harvest-kale-quinoa-bowl",
+  },
+  {
+    id: 2,
+    name: "Lemon Herb Grilled Chicken",
+    description: "Marinated chicken breast, roasted asparagus, wild rice",
+    tags: ["protein", "gluten-free"],
+    prepTime: "30 min",
+    price: 12.99,
+    color: "from-amber-200 via-yellow-100 to-orange-200",
+    slug: "lemon-herb-grilled-chicken",
+  },
+  {
+    id: 3,
+    name: "Spicy Thai Coconut Curry",
+    description: "Shrimp, bell peppers, bamboo shoots, jasmine rice",
+    tags: ["pescatarian", "gluten-free"],
+    prepTime: "30 min",
+    price: 13.99,
+    color: "from-red-200 via-rose-100 to-pink-200",
+    slug: "spicy-thai-coconut-curry",
+  },
+  {
+    id: 4,
+    name: "Mushroom & Truffle Risotto",
+    description: "Arborio rice, wild mushrooms, parmesan, truffle oil",
+    tags: ["vegetarian", "gluten-free"],
+    prepTime: "35 min",
+    price: 11.99,
+    color: "from-stone-200 via-stone-100 to-amber-200",
+    slug: "mushroom-truffle-risotto",
+  },
+  {
+    id: 5,
+    name: "Southwest Black Bean Tacos",
+    description: "Corn tortillas, black beans, pico de gallo, lime crema",
+    tags: ["vegetarian", "vegan", "gluten-free"],
+    prepTime: "20 min",
+    price: 9.99,
+    color: "from-orange-200 via-amber-100 to-yellow-200",
+    slug: "southwest-black-bean-tacos",
+  },
+  {
+    id: 6,
+    name: "Miso Glazed Salmon",
+    description: "Atlantic salmon, sesame asparagus, coconut rice",
+    tags: ["pescatarian", "protein", "gluten-free"],
+    prepTime: "25 min",
+    price: 14.99,
+    color: "from-rose-200 via-pink-100 to-red-200",
+    slug: "miso-glazed-salmon",
+  },
+  {
+    id: 7,
+    name: "Herb-Crusted Pork Tenderloin",
+    description: "Pork tenderloin, apple fennel slaw, roasted potatoes",
+    tags: ["protein", "gluten-free"],
+    prepTime: "35 min",
+    price: 13.99,
+    color: "from-amber-200 via-yellow-100 to-orange-200",
+    slug: "herb-crusted-pork-tenderloin",
+  },
+  {
+    id: 8,
+    name: "Zucchini Noodle Bolognese",
+    description: "Grass-fed beef, san marzano tomatoes, basil, zoodles",
+    tags: ["protein", "low-cal"],
+    prepTime: "25 min",
+    price: 11.99,
+    color: "from-red-200 via-rose-100 to-red-300",
+    slug: "zucchini-noodle-bolognese",
+  },
+  {
+    id: 9,
+    name: "Mediterranean Stuffed Peppers",
+    description: "Bell peppers, quinoa, feta, olives, fresh herbs",
+    tags: ["vegetarian", "gluten-free"],
+    prepTime: "30 min",
+    price: 10.99,
+    color: "from-green-300 via-emerald-200 to-teal-200",
+    slug: "mediterranean-stuffed-peppers",
+  },
+  {
+    id: 10,
+    name: "Sesame Ginger Beef Bowls",
+    description: "Strip steak, edamame, pickled carrots, jasmine rice",
+    tags: ["protein", "gluten-free"],
+    prepTime: "25 min",
+    price: 13.99,
+    color: "from-brown-200 via-amber-200 to-stone-200",
+    slug: "sesame-ginger-beef-bowls",
+  },
+  {
+    id: 11,
+    name: "Roasted Cauliflower & Tahini",
+    description: "Whole roasted cauliflower, cilantro sauce, pita chips",
+    tags: ["vegetarian", "vegan", "gluten-free", "low-cal"],
+    prepTime: "35 min",
+    price: 9.99,
+    color: "from-stone-200 via-yellow-100 to-amber-100",
+    slug: "roasted-cauliflower-tahini",
+  },
+  {
+    id: 12,
+    name: "Blackened Cod Tacos",
+    description: "Blackened cod, mango salsa, cabbage slaw, corn tortillas",
+    tags: ["pescatarian", "protein", "gluten-free"],
+    prepTime: "25 min",
+    price: 14.99,
+    color: "from-orange-200 via-amber-200 to-yellow-200",
+    slug: "blackened-cod-tacos",
+  },
+];
